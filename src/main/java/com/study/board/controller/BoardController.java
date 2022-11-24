@@ -9,21 +9,18 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
-
 @Controller
 @RequiredArgsConstructor
 public class BoardController {
 
     private final BoardService boardService;
-
     @GetMapping("/boardWrite")
-    public String boardCreate(){
-
+    public String boardWrite(){
         return "boardWrite";
     }
 
     @PostMapping("/boardWritePro")
-    public String boardCreatePro(SpringBoard springBoard){
+    public String boardWritePro(SpringBoard springBoard){
 
         boardService.boardWrite(springBoard);
 
@@ -39,7 +36,7 @@ public class BoardController {
     }
 
     @GetMapping("/boardView")
-    public String boardView(Model model, Integer id){
+    public String boardView( Integer id, Model model){
 
         model.addAttribute("board", boardService.boardView(id));
 
@@ -49,14 +46,13 @@ public class BoardController {
     @GetMapping("/boardDelete")
     public String boardDelete(Integer id){
 
-        boardService.deleteBoard(id);
+        boardService.boardDelete(id);
 
         return "redirect:/boardList";
     }
 
     @GetMapping("/boardModify/{id}")
-    public String boardModify(@PathVariable("id") Integer id
-                        , Model model){
+    public String boardModify(@PathVariable("id") Integer id, Model model){
 
         model.addAttribute("board", boardService.boardView(id));
 
@@ -66,12 +62,12 @@ public class BoardController {
     @PostMapping("/boardUpdate/{id}")
     public String boardUpdate(@PathVariable("id") Integer id, SpringBoard springBoard){
 
-        SpringBoard springBoardTemp = boardService.boardView(id);
+        SpringBoard springboardTemp = boardService.boardView(id);
 
-        springBoardTemp.setTitle(springBoard.getTitle());
-        springBoardTemp.setContent(springBoard.getContent());
+        springboardTemp.setTitle(springBoard.getTitle());
+        springboardTemp.setContent(springBoard.getContent());
 
-        boardService.boardWrite(springBoardTemp);
+        boardService.boardWrite(springboardTemp);
 
         return "redirect:/boardList";
     }

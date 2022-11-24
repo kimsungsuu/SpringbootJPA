@@ -1,14 +1,14 @@
 package com.study.board.entity;
 
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
-@Entity(name = "springboard")
-@Getter
-@Setter
+@Entity(name="springboard")
+@Data
 public class SpringBoard {
 
     @Id
