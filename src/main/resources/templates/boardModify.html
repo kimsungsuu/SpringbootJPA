@@ -2,24 +2,20 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>게시글 수정</title>
+    <title>게시글 수정 페이지</title>
 </head>
 <body>
-<form th:action="@{/boardUpdate/{id}(id=${board.id})}" method="post">
-    <table >
-        <tr>
-            <td>
-                제목 <input type="text" name="title" th:value="${board.title}">
-            </td>
-        </tr>
+<form th:action="@{/boardUpdate(id=${board.id})}" method="post" enctype="multipart/form-data">
+  <table>
+    <tr>
+      <td> 제목 : <input type="text" name="title" th:value="${board.title}"></td>
+    </tr>
 
-        <tr>
-            <td>
-                내용 <textarea name="content" th:text="${board.content}"></textarea>
-            </td>
-        </tr>
-    </table>
-    <input type="submit" value="수정">
+    <tr>
+      <td>내용 : <textarea name="content" cols="30" rows="10" th:text="${board.content}"></textarea></td>
+    </tr>
+  </table>
+  <input type="submit" value="수정">
 </form>
 </body>
 </html>

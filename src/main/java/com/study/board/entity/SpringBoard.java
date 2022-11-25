@@ -12,10 +12,14 @@ import javax.persistence.Id;
 public class SpringBoard {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Integer id;
 
     private String title;
 
     private String content;
+
+    private String filename;
+
+    private String filepath;
 }

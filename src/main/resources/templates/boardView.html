@@ -2,23 +2,23 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>게시판 상세 페이지</title>
+    <title>게시글 상세 페이지</title>
 </head>
 <body>
-<table>
+  <table border="1px">
     <tr>
-        <th>제목
-        <td th:text="${board.title}"></td>
-        </th>
+      <td>제목  </td>
+      <td th:text="${board.title}"></td>
     </tr>
+    <tr>
+      <td>내용  </td>
+      <td th:text="${board.content}"></td>
+    </tr>
+  </table>
+  <a th:href="@{${board.filepath}}">다운받기</a>
 
-    <tr>
-        <th>내용
-        <td th:text="${board.content}"></td>
-        </th>
-    </tr>
-</table>
-<a th:href="@{/boardDelete(id=${board.id})}">삭제</a>
-<a th:href="@{/boardModify/{id}(id=${board.id})}">수정</a>
+  <a th:href="@{/boardDelete(id=${board.id})}">삭제</a>
+  <a th:href="@{/boardModify/{id}(id=${board.id})}">수정</a>
+
 </body>
 </html>

@@ -1,26 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>게시글 작성 폼</title>
+    <title>게시판 작성 페이지</title>
 </head>
 <body>
+  <form action="boardWritePro" method="post" enctype="multipart/form-data">
+      <table>
+          <tr>
+             <td> 제목 : <input type="text" name="title"></td>
+          </tr>
 
-<form action="boardWritePro" method="post">
-<table >
-    <tr>
-        <td>
-            제목 <input type="text" name="title">
-        </td>
-    </tr>
+          <tr>
+              <td>내용 : <textarea name="content" cols="30" rows="10"></textarea></td>
+          </tr>
 
-    <tr>
-        <td>
-            내용 <textarea name="content"></textarea>
-        </td>
-    </tr>
-</table>
+      </table>
+
+      <input type="file" name="file">
     <input type="submit" value="저장">
-</form>
+  </form>
 </body>
 </html>
