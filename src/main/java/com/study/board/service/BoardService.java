@@ -18,18 +18,18 @@ public class BoardService {
 
     public void boardWriter(SpringBoard springBoard, MultipartFile file) throws Exception{
 
-        String projectPath = System.getProperty("user.dir") + "\\src\\main\\resources\\static\\file";
+       String projectPath = System.getProperty("user.dir") + "\\src\\main\\resources\\static\\file\\";
 
-        UUID uuid = UUID.randomUUID();
+       UUID uuid = UUID.randomUUID();
 
-        String fileName = uuid + "_" + file.getOriginalFilename();
+       String fileName = uuid + "_" + file.getOriginalFilename();
 
-        File saveFile = new File(projectPath, fileName);
+       File saveFile = new File(projectPath, fileName);
 
-        file.transferTo(saveFile);
+       file.transferTo(saveFile);
 
-        springBoard.setFilename(fileName);
-        springBoard.setFilepath("/file/" + fileName);
+       springBoard.setFilename(fileName);
+       springBoard.setFilepath("/file/" + fileName);
 
         boardRepository.save(springBoard);
     }
