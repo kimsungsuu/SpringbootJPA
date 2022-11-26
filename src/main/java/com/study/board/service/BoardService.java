@@ -3,6 +3,8 @@ package com.study.board.service;
 import com.study.board.entity.SpringBoard;
 import com.study.board.repository.BoardRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -34,9 +36,8 @@ public class BoardService {
         boardRepository.save(springBoard);
     }
 
-    public List<SpringBoard> boardList(){
-        List<SpringBoard> boardList =  boardRepository.findAll();
-        return boardList;
+    public Page<SpringBoard> boardList(Pageable pageable){
+        return boardRepository.findAll(pageable);
     }
 
     public SpringBoard boardView(Integer id){
