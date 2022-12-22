@@ -5,7 +5,6 @@
 
 * * *
 </br>
-</br>
 
 ## 주요 기능
 > - CRUD
@@ -17,12 +16,12 @@
 * * *
 
 </br>
-</br>
 
 ## 기술 스택
 > - Java 11
 > - Spring boot 2.7.x
-> - JPA
+> - JPA 3.0
+> - MySQL 8
 
 
 
